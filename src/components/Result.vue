@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Home</h1>
-    <router-link :to="{ name: 'game' }">PLAY</router-link>
+    <h1>Result</h1>
+    <router-link :to="{ name: 'game' }">PLAY AGAIN</router-link>
   </div>
 </template>
 
@@ -9,5 +9,5 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Home extends Vue {}
+export default class Result extends Vue {}
 </script>
