@@ -1,9 +1,14 @@
 <template>
-  <div class="header">
-    <router-link :to="{ name: 'home' }">
-      Scrabble Workout
-    </router-link>
-  </div>
+  <header class="header">
+    <h1 class="header__title">
+      <router-link
+        :to="{ name: 'home' }"
+        class="link"
+      >
+        Scrabble Workout
+      </router-link>
+    </h1>
+  </header>
 </template>
 
 <script lang="ts">

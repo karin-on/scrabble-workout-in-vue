@@ -7,3 +7,13 @@
   "abstracts/mixins";
 @import
   "base/body";
+@import
+  "views/home",
+  "views/view";
+@import
+  "components/button",
+  "components/link",
+
+  "components/header",
+  "components/hero",
+  "components/start-game";

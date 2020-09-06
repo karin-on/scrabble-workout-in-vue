@@ -1,0 +1,8 @@
+.view {
+  display: grid;
+  height: calc(100vh - #{$header-height-mob});
+
+  &.-home {
+    grid-template-rows: 2fr 3fr;
+  }
+}

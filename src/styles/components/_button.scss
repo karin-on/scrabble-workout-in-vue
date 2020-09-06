@@ -1,0 +1,38 @@
+.button {
+  display: inline-block;
+  width: 240px;
+  padding: 15px 0;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px -1px $color-green-dark-1;
+  transition: 0.3s opacity;
+  text-transform: uppercase;
+  font-family: inherit;
+  text-decoration: none;
+
+  &:active {
+    opacity: 0.9;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &.-small {
+    width: 130px;
+  }
+
+  &.-filled {
+    border: 1px solid $color-yellow-2;
+    background: $color-yellow-2;
+    color: $color-green-dark-2;
+  }
+
+  &.-outlined {
+    border: 1px solid $color-yellow-2;
+    background: transparent;
+    color: $color-yellow-2;
+  }
+}
