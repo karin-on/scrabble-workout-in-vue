@@ -1,0 +1,65 @@
+@import "variables";
+
+@mixin letter($index) {
+    grid-area: l#{$index};
+
+    @if $index != 3 and $index != 4 and $index != 5 {
+        transform: translateX(40px);
+    }
+}
+
+@mixin letter-unset {
+    grid-area: unset;
+    transform: none;
+}
+
+@mixin button {
+    display: inline-block;
+    padding: 15px 0;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px -1px $color-green-dark-1;
+    transition: 0.3s opacity;
+    text-transform: uppercase;
+    font-family: inherit;
+    text-decoration: none;
+
+    &:active {
+        opacity: 0.9;
+    }
+}
+
+@mixin button-filled {
+    border: 1px solid $color-yellow-2;
+    background: $color-yellow-2;
+    color: $color-green-dark-2;
+}
+
+@mixin button-outlined {
+    border: 1px solid $color-yellow-2;
+    background: transparent;
+    color: $color-yellow-2;
+}
+
+@mixin button-regular-width {
+    width: 240px;
+}
+
+@mixin button-small {
+    width: 130px;
+}
+
+@mixin button-hover {
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+@mixin absolute-and-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
