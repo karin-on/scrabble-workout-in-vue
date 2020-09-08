@@ -1,19 +1,27 @@
 @import
   "base/reset",
   "base/fonts";
+
 @import
   "abstracts/variables",
   "abstracts/breakpoints",
   "abstracts/mixins";
+
 @import
   "base/body";
+
 @import
-  "views/home",
-  "views/view";
+  "views/view",
+  "views/game";
+
 @import
   "components/button",
   "components/link",
 
+  "components/backspace",
   "components/header",
   "components/hero",
-  "components/start-game";
+  "components/slots",
+  "components/start-game",
+  "components/tiles",
+  "components/timer";
