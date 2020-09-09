@@ -1,0 +1,31 @@
+.tiles {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-self: center;
+  align-self: center;
+  list-style: none;
+
+  &__tile {
+    width: 50px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+
+    &.-tile-3 {
+      grid-column: 1;
+    }
+
+    &.-tile-1,
+    &.-tile-2,
+    &.-tile-6,
+    &.-tile-7 {
+      position: relative;
+      left: calc((50px + 20px) / 2);
+    }
+  }
+}

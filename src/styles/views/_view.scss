@@ -5,4 +5,9 @@
   &.-home {
     grid-template-rows: 2fr 3fr;
   }
+
+  &.-game {
+    grid-template-rows: 1fr 1fr 1fr 5fr;
+    padding: 2% 15px 5%;
+  }
 }
