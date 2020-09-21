@@ -1,13 +1,29 @@
 <template>
-  <div>
-    <h1>Result</h1>
+  <main>
+    <Answer />
+    <ResultMessage />
+    <OtherWords />
+    <PlayAgain />
     <router-link :to="{ name: 'game' }">PLAY AGAIN</router-link>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import {
+  Answer,
+  OtherWords,
+  PlayAgain,
+  ResultMessage,
+} from '../components';
 
-@Component
+@Component({
+  components: {
+    Answer,
+    OtherWords,
+    PlayAgain,
+    ResultMessage,
+  },
+})
 export default class Result extends Vue {}
 </script>
