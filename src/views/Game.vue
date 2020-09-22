@@ -4,7 +4,7 @@
     <LetterSlots />
     <Backspace />
     <Tiles />
-    <button class="button -filled game__submit">sprawdź</button>
+    <router-link :to="{ name: 'result' }" class="button -filled game__submit">sprawdź</router-link>
   </main>
 </template>
 

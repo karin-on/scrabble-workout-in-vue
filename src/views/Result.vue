@@ -1,10 +1,9 @@
 <template>
-  <main>
+  <main class="view -result">
     <Answer />
     <ResultMessage />
     <OtherWords />
     <PlayAgain />
-    <router-link :to="{ name: 'game' }">PLAY AGAIN</router-link>
   </main>
 </template>
 
@@ -12,7 +11,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import {
   Answer,
-  OtherWords,
+  CorrectWords,
   PlayAgain,
   ResultMessage,
 } from '../components';
@@ -20,7 +19,7 @@ import {
 @Component({
   components: {
     Answer,
-    OtherWords,
+    OtherWords: CorrectWords,
     PlayAgain,
     ResultMessage,
   },

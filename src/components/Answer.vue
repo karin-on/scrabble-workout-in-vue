@@ -1,5 +1,8 @@
 <template>
-  <section>Answer</section>
+  <section class="answer">
+    <h2 class="answer__title">Twoje słowo:</h2>
+    <div class="answer__word">JKATROC</div>
+  </section>
 </template>
 
 <script lang="ts">

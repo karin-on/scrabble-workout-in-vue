@@ -1,5 +1,12 @@
 <template>
-  <section>Play Again</section>
+  <section class="play-again">
+    <router-link
+      :to="{ name: 'game' }"
+      class="button -filled"
+    >
+      Zagraj ponownie
+    </router-link>
+  </section>
 </template>
 
 <script>

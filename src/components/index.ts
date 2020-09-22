@@ -3,7 +3,7 @@ import Backspace from './Backspace.vue';
 import Header from './Header.vue';
 import LetterSlot from './LetterSlot.vue';
 import LetterSlots from './LetterSlots.vue';
-import OtherWords from './OtherWords.vue';
+import CorrectWords from './CorrectWords.vue';
 import PlayAgain from './PlayAgain.vue';
 import ResultMessage from './ResultMessage.vue';
 import Tile from './Tile.vue';
@@ -16,7 +16,7 @@ export {
   Header,
   LetterSlot,
   LetterSlots,
-  OtherWords,
+  CorrectWords,
   PlayAgain,
   ResultMessage,
   Tile,
