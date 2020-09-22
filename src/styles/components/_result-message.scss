@@ -1,0 +1,11 @@
+.result-message {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+
+  &__title {
+    font-size: 14px;
+  }
+}
