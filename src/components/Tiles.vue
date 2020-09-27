@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { LetterObject } from '@/models/letters';
+import { LetterObject } from '@/models';
 import Tile from './Tile.vue';
 
 @Component({

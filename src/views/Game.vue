@@ -11,9 +11,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { drawAWord } from '@/helpers/draw-a-word';
-import { shuffleAnArray } from '@/helpers/shuffle-an-array';
-import { LetterObject } from '@/models/letters';
+import { getRandomArrayElement, shuffleAnArray } from '@/helpers';
+import { LetterObject } from '@/models';
 import { words } from '@/data/words';
 import {
   Backspace,
@@ -35,7 +34,7 @@ export default class Game extends Vue {
   letters: LetterObject[] = [];
 
   created(): void {
-    const letters = drawAWord(words)[0]
+    const letters = getRandomArrayElement(words)[0]
       .split('')
       .map((letter: string, index: number): LetterObject => ({
         id: index,
