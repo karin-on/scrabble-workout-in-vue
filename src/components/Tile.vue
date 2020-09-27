@@ -1,18 +1,19 @@
 <template>
-  <li class="tiles__tile" :class="`-tile-${letter}`">
-    {{ letter }}
+  <li class="tiles__tile" :class="`-tile-${index + 1}`">
+    {{ letter.toUpperCase() }}
   </li>
 </template>
 
-<script>
-import { Component, Vue } from 'vue-property-decorator';
 
-const TileProps = Vue.extend({
-  props: {
-    letter: String,
-  },
-});
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Tile extends TileProps {}
+export default class Tile extends Vue {
+  @Prop({ required: true, type: String })
+  letter!: string;
+
+  @Prop({ required: true, type: Number })
+  index!: number;
+}
 </script>

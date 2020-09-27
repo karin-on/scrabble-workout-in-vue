@@ -1,11 +1,18 @@
 <template>
   <ul class="tiles">
-    <Tile v-for="(n, index) in 7" :key="index" :letter="`${n}`" />
+    <Tile
+      v-for="({ id, value }, i) in letters"
+      :key="id"
+      :letter="value"
+      :index="i"
+    />
   </ul>
 </template>
 
-<script>
-import { Component, Vue } from 'vue-property-decorator';
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { LetterObject } from '@/models/letters';
 import Tile from './Tile.vue';
 
 @Component({
@@ -13,5 +20,8 @@ import Tile from './Tile.vue';
     Tile,
   },
 })
-export default class Tiles extends Vue {}
+export default class Tiles extends Vue {
+  @Prop({ required: true, type: Array })
+  letters!: LetterObject[];
+}
 </script>

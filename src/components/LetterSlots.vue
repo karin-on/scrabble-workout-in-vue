@@ -4,7 +4,8 @@
   </ul>
 </template>
 
-<script>
+
+<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import LetterSlot from './LetterSlot.vue';
 
