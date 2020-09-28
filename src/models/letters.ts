@@ -1,4 +1,5 @@
 export interface LetterObject {
-  id: number;
+  id: string;
   value: string;
+  active: boolean;
 }
