@@ -1,9 +1,9 @@
 <template>
   <ul class="tiles">
     <Tile
-      v-for="({ id, value }, i) in letters"
-      :key="id"
-      :letter="value"
+      v-for="(letter, i) in letters"
+      :key="letter.id"
+      :letter="letter"
       :index="i"
     />
   </ul>
