@@ -4,7 +4,9 @@
     :class="`-tile-${index + 1}`"
     @click="handleTileClick"
   >
-    {{ letter.value.toUpperCase() }}
+    <button class="tiles__button" tabindex="-1" :disabled="!letter.active">
+      {{ letter.value.toUpperCase() }}
+    </button>
   </li>
 </template>
 
@@ -23,7 +25,7 @@ export default class Tile extends Vue {
   index!: number;
 
   handleTileClick() {
-    eventBus.$emit('letterClicked', this.letter.id);
+    eventBus.$emit('letter-clicked', this.letter.id);
   }
 }
 </script>

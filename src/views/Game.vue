@@ -47,22 +47,27 @@ export default class Game extends Vue {
 
     this.letters = shuffleAnArray(letters);
 
-    eventBus.$on('letterClicked', (id: string): void => {
+    eventBus.$on('letter-clicked', (id: string): void => {
       this.handleLetterSelection(id);
     });
   }
 
+  beforeDestroy(): void {
+    eventBus.$off('letter-clicked');
+  }
+
   handleLetterSelection(letterId: string): void {
-    this.toggleLetterActiveState(letterId);
     const selectedLetter: LetterObject = this.letters
       .find(({ id }) => id === letterId)!;
 
     this.currentAnswer = [...this.currentAnswer, selectedLetter];
+    this.toggleLetterActiveState(letterId);
   }
 
   toggleLetterActiveState(letterId: string) {
     const letterIndex: number = this.letters
       .findIndex(({ id }) => id === letterId);
+
     this.letters[letterIndex].active = !this.letters[letterIndex].active;
   }
 }

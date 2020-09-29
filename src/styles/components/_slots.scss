@@ -8,5 +8,11 @@
     align-self: center;
     font-size: 40px;
     line-height: 60px;
+
+    &.-empty {
+      &::before {
+        content: '\00B7';
+      }
+    }
   }
 }

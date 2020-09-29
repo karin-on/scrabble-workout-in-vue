@@ -1,6 +1,6 @@
 <template>
   <ul class="letter-slots">
-    <LetterSlot v-for="letter in currentAnswer" :key="letter.id" :letter="letter" />
+    <LetterSlot v-for="n in 7" :key="n" :index="n - 1" :currentAnswer="currentAnswer" />
   </ul>
 </template>
 
@@ -17,6 +17,6 @@ import LetterSlot from './LetterSlot.vue';
 })
 export default class LetterSlots extends Vue {
   @Prop({ required: true, type: Array })
-  currentAnswer: LetterObject[] = [];
+  currentAnswer!: LetterObject[];
 }
 </script>
