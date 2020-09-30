@@ -11,8 +11,7 @@
   "base/body";
 
 @import
-  "views/view",
-  "views/game";
+  "views/view";
 
 @import
   "components/button",
@@ -27,5 +26,6 @@
   "components/result-message",
   "components/slots",
   "components/start-game",
+  "components/submit",
   "components/tiles",
   "components/timer";

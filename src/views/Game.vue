@@ -3,8 +3,8 @@
     <Timer />
     <LetterSlots :currentAnswer="currentAnswer" />
     <Backspace :active="!!currentAnswer.length"/>
-    <Tiles :letters="letters" />
-    <router-link :to="{ name: 'result' }" class="button -filled game__submit">sprawdź</router-link>
+    <Tiles :letters="letters" v-if="!submitIsVisible" />
+    <Submit v-if="submitIsVisible" @submit="submit" @cancel="cancelSubmit" />
   </main>
 </template>
 
@@ -14,17 +14,19 @@ import { Component, Vue } from 'vue-property-decorator';
 import { eventBus } from '@/main';
 import { generateId, getRandomArrayElement, shuffleAnArray } from '@/helpers';
 import { LetterObject } from '@/models';
+import { WORD_LENGTH } from '@/static/word-length';
 import { words } from '@/data/words';
 import {
   Backspace,
   LetterSlots,
+  Submit,
   Tiles,
   Timer,
 } from '../components';
 
-
 @Component({
   components: {
+    Submit,
     Tiles,
     Timer,
     LetterSlots,
@@ -35,6 +37,8 @@ export default class Game extends Vue {
   letters: LetterObject[] = [];
 
   currentAnswer: LetterObject[] = [];
+
+  submitIsVisible: boolean = false;
 
   created(): void {
     const letters = getRandomArrayElement(words)[0]
@@ -67,6 +71,10 @@ export default class Game extends Vue {
 
     this.currentAnswer = [...this.currentAnswer, selectedLetter];
     this.toggleLetterActiveState(letterId);
+
+    if (this.currentAnswer.length === WORD_LENGTH) {
+      this.submitIsVisible = true;
+    }
   }
 
   toggleLetterActiveState(letterId: string): void {
@@ -82,6 +90,14 @@ export default class Game extends Vue {
 
     this.currentAnswer = updatedCurrentAnswer;
     this.toggleLetterActiveState(deletedLetter.id);
+  }
+
+  submit(): void {
+    this.$router.push({ name: 'result' });
+  }
+
+  cancelSubmit(): void {
+    this.submitIsVisible = false;
   }
 }
 </script>

@@ -6,6 +6,7 @@ import LetterSlots from './LetterSlots.vue';
 import CorrectWords from './CorrectWords.vue';
 import PlayAgain from './PlayAgain.vue';
 import ResultMessage from './ResultMessage.vue';
+import Submit from './Submit.vue';
 import Tile from './Tile.vue';
 import Tiles from './Tiles.vue';
 import Timer from './Timer.vue';
@@ -19,6 +20,7 @@ export {
   CorrectWords,
   PlayAgain,
   ResultMessage,
+  Submit,
   Tile,
   Tiles,
   Timer,
