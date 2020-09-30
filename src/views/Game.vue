@@ -2,7 +2,7 @@
   <main class="view -game">
     <Timer />
     <LetterSlots :currentAnswer="currentAnswer" />
-    <Backspace />
+    <Backspace :active="!!currentAnswer.length"/>
     <Tiles :letters="letters" />
     <router-link :to="{ name: 'result' }" class="button -filled game__submit">sprawdź</router-link>
   </main>
@@ -47,13 +47,18 @@ export default class Game extends Vue {
 
     this.letters = shuffleAnArray(letters);
 
-    eventBus.$on('letter-clicked', (id: string): void => {
+    eventBus.$on('letter-selected', (id: string): void => {
       this.handleLetterSelection(id);
+    });
+
+    eventBus.$on('letter-deleted', (): void => {
+      this.handleLetterDeletion();
     });
   }
 
   beforeDestroy(): void {
-    eventBus.$off('letter-clicked');
+    eventBus.$off('letter-selected');
+    eventBus.$off('letter-deleted');
   }
 
   handleLetterSelection(letterId: string): void {
@@ -64,11 +69,19 @@ export default class Game extends Vue {
     this.toggleLetterActiveState(letterId);
   }
 
-  toggleLetterActiveState(letterId: string) {
+  toggleLetterActiveState(letterId: string): void {
     const letterIndex: number = this.letters
       .findIndex(({ id }) => id === letterId);
 
     this.letters[letterIndex].active = !this.letters[letterIndex].active;
+  }
+
+  handleLetterDeletion(): void {
+    const updatedCurrentAnswer = [...this.currentAnswer];
+    const deletedLetter = updatedCurrentAnswer.pop()!;
+
+    this.currentAnswer = updatedCurrentAnswer;
+    this.toggleLetterActiveState(deletedLetter.id);
   }
 }
 </script>

@@ -11,13 +11,19 @@
   text-transform: uppercase;
   font-family: inherit;
   text-decoration: none;
+  cursor: pointer;
 
   &:active {
-    opacity: 0.9;
+    opacity: .9;
   }
 
   &:hover {
-    opacity: 0.9;
+    opacity: .9;
+  }
+
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
   }
 
   &.-small {
