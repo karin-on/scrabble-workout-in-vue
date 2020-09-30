@@ -24,8 +24,8 @@ export default class Tile extends Vue {
   @Prop({ required: true, type: Number })
   index!: number;
 
-  handleTileClick() {
-    eventBus.$emit('letter-clicked', this.letter.id);
+  handleTileClick(): void {
+    eventBus.$emit('letter-selected', this.letter.id);
   }
 }
 </script>
