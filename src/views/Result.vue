@@ -2,7 +2,7 @@
   <main class="view -result">
     <Answer />
     <ResultMessage />
-    <OtherWords />
+    <CorrectWords />
     <PlayAgain />
   </main>
 </template>
@@ -20,7 +20,7 @@ import {
 @Component({
   components: {
     Answer,
-    OtherWords: CorrectWords,
+    CorrectWords,
     PlayAgain,
     ResultMessage,
   },

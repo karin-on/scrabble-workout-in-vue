@@ -11,11 +11,16 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { eventBus } from '@/main';
-import { generateId, getRandomArrayElement, shuffleAnArray } from '@/helpers';
+import { eventBus, store } from '@/main';
 import { LetterObject } from '@/models';
 import { WORD_LENGTH } from '@/static/word-length';
 import { words } from '@/data/words';
+import {
+  generateId,
+  getRandomArrayElement,
+  joinLetters,
+  shuffleAnArray,
+} from '@/helpers';
 import {
   Backspace,
   LetterSlots,
@@ -41,14 +46,16 @@ export default class Game extends Vue {
   submitIsVisible: boolean = false;
 
   created(): void {
-    const letters = getRandomArrayElement(words)[0]
+    const drawnWords: string[] = getRandomArrayElement(words);
+    store.correctWords = drawnWords;
+
+    const letters = drawnWords[0]
       .split('')
       .map((letter: string, index: number): LetterObject => ({
         id: generateId(),
         value: letter,
         active: true,
       }));
-
     this.letters = shuffleAnArray(letters);
 
     eventBus.$on('letter-selected', (id: string): void => {
@@ -93,6 +100,10 @@ export default class Game extends Vue {
   }
 
   submit(): void {
+    store.answer = this.currentAnswer.length === WORD_LENGTH
+      ? joinLetters([...this.currentAnswer])
+      : '';
+
     this.$router.push({ name: 'result' });
   }
 
