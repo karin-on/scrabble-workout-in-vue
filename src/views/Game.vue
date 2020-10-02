@@ -2,7 +2,7 @@
   <main class="view -game">
     <Timer />
     <LetterSlots :currentAnswer="currentAnswer" />
-    <Backspace :active="!!currentAnswer.length"/>
+    <Backspace :active="backspaceIsActive"/>
     <Tiles :letters="letters" v-if="!submitIsVisible" />
     <Submit v-if="submitIsVisible" @submit="submit" @cancel="cancelSubmit" />
   </main>
@@ -70,6 +70,12 @@ export default class Game extends Vue {
   beforeDestroy(): void {
     eventBus.$off('letter-selected');
     eventBus.$off('letter-deleted');
+  }
+
+  get backspaceIsActive(): boolean {
+    const { length } = this.currentAnswer;
+    return (!!length && length < WORD_LENGTH)
+      || (length === WORD_LENGTH && !this.submitIsVisible);
   }
 
   handleLetterSelection(letterId: string): void {
