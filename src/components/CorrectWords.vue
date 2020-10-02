@@ -1,23 +1,47 @@
 <template>
   <section class="correct-words">
-    <h2 class="correct-words__title">Poprawne {{ wordForm }} to:</h2>
+    <h2 class="correct-words__title">{{ message }}</h2>
     <p class="correct-words__par">{{ correctWords }}</p>
   </section>
 </template>
 
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import { store } from '@/main';
 
 @Component
 export default class CorrectWords extends Vue {
+  @Prop({ required: true, type: Boolean })
+  answerIsCorrect!: boolean;
+
   get wordForm(): string {
-    return this.correctWords.length > 1 ? 'słowa' : 'słowo';
+    if ((this.answerIsCorrect && store.correctWords.length > 2)
+      || (!this.answerIsCorrect && store.correctWords.length > 1)) {
+      return 'słowa';
+    }
+
+    return 'słowo';
   }
 
   get correctWords(): string {
-    return store.correctWords.join(', ');
+    const wordsToDisplay: string[] = [...store.correctWords];
+    if (this.answerIsCorrect) {
+      const index = wordsToDisplay.findIndex(word => word === store.answer);
+      wordsToDisplay.splice(index, 1);
+    }
+
+    return wordsToDisplay.join(', ');
+  }
+
+  get message(): string {
+    if (this.answerIsCorrect && store.correctWords.length === 1) {
+      return 'Brak innych możliwych odpowiedzi';
+    }
+
+    return this.answerIsCorrect
+      ? `Inne poprawne ${this.wordForm} to:`
+      : `Poprawne ${this.wordForm} to:`;
   }
 }
 </script>
