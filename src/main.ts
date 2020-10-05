@@ -10,8 +10,8 @@ Vue.config.productionTip = false;
 
 export const store = new Vue({
   data: {
-    correctWords: [] as string[],
-    answer: '' as string,
+    correctWords: <string[]>[],
+    answer: <string>'',
   },
 });
 

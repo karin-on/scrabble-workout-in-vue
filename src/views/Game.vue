@@ -1,6 +1,6 @@
 <template>
   <main class="view -game">
-    <Timer />
+    <Timer @time-over="submit" />
     <LetterSlots :currentAnswer="currentAnswer" />
     <Backspace :active="backspaceIsActive"/>
     <Tiles :letters="letters" v-if="!submitIsVisible" />
@@ -13,8 +13,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { eventBus, store } from '@/main';
 import { LetterObject } from '@/models';
-import { WORD_LENGTH } from '@/static/word-length';
 import { words } from '@/data/words';
+import { WORD_LENGTH } from '@/static/words';
 import {
   generateId,
   getRandomArrayElement,
