@@ -12,17 +12,14 @@
 
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { store } from '@/main';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Answer extends Vue {
-  get answerWasSubmitted(): boolean {
-    return !!store.answer;
-  }
+  @Prop({ required: true, type: String })
+  answer!: string;
 
-  get answer(): string {
-    return store.answer;
-  }
+  @Prop({ required: true, type: Boolean })
+  answerWasSubmitted!: boolean;
 }
 </script>
