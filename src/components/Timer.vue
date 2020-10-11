@@ -25,7 +25,7 @@ export default class Timer extends Vue {
     this.stopTimer();
   }
 
-  get formattedTimeLeft(): string {
+  get formattedTimeLeft(): string | undefined {
     return formatDuration(this.timeLeft);
   }
 
