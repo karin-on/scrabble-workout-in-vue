@@ -12,6 +12,9 @@ import { store } from '@/main';
 
 @Component
 export default class CorrectWords extends Vue {
+  @Prop({ required: true, type: String })
+  answer!: string;
+
   @Prop({ required: true, type: Boolean })
   answerIsCorrect!: boolean;
 
@@ -27,7 +30,7 @@ export default class CorrectWords extends Vue {
   get correctWords(): string {
     const wordsToDisplay: string[] = [...store.correctWords];
     if (this.answerIsCorrect) {
-      const index = wordsToDisplay.findIndex(word => word === store.answer);
+      const index = wordsToDisplay.findIndex(word => word === this.answer);
       wordsToDisplay.splice(index, 1);
     }
 

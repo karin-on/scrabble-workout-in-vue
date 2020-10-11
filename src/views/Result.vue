@@ -2,7 +2,7 @@
   <main class="view -result">
     <Answer :answer="answer" :answerWasSubmitted="answerWasSubmitted" />
     <ResultMessage :answerIsCorrect="answerIsCorrect" />
-    <CorrectWords :answerIsCorrect="answerIsCorrect" />
+    <CorrectWords :answer="answer" :answerIsCorrect="answerIsCorrect" />
     <PlayAgain />
   </main>
 </template>
