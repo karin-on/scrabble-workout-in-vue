@@ -1,5 +1,7 @@
 <template>
   <section class="result-message">
+    <i v-if="answerIsCorrect" class="fas fa-check fa-3x"></i>
+    <i v-else class="fas fa-times fa-3x"></i>
     <h2 class="result-message__title">{{ resultMessage }}</h2>
   </section>
 </template>

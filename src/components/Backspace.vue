@@ -1,8 +1,7 @@
 <template>
-  <button
-    class="backspace button -filled"
-    :disabled="!active"
-    @click="handleBackspaceClick">X</button>
+  <button class="backspace" :disabled="!active" @click="handleBackspaceClick">
+    <i class="fas fa-backspace fa-2x"></i>
+  </button>
 </template>
 
 
