@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+// TODO:
 // import store from './store';
 // import './registerServiceWorker';
 import 'normalize.css';
@@ -21,6 +22,7 @@ export const eventBus = new Vue();
 
 new Vue({
   router,
+  // TODO:
   // store,
   render: h => h(App),
 }).$mount('#app');
